@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 27, 2019 at 05:07 AM
+-- Generation Time: Apr 28, 2019 at 04:33 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -43,9 +43,8 @@ CREATE TABLE `tb_anggota` (
 --
 
 INSERT INTO `tb_anggota` (`nim`, `nama`, `tempat_lahir`, `tgl_lahir`, `jk`, `prodi`, `gambar`) VALUES
-('17053562950', 'amirudin', 'kediri', '2019-12-31', 'L', 'Teknik informatika', 'default.jpg'),
-('170535629502', 'khoirul anam', 'dampit', '2019-12-31', 'L', 'Sistem informasi', 'default.jpg'),
-('170535629505', 'amirudin', 'kediri', '2019-12-31', 'L', 'Teknik informatika', 'default.jpg');
+('170535629508', 'luis devi', 'malang', '2011-01-20', 'P', 'Keamanan jaringan', 'default.jpg'),
+('170535629606', 'khoirul anam', 'dampit', '2013-03-23', 'L', 'Sistem informasi', 'default1.jpg');
 
 -- --------------------------------------------------------
 
@@ -70,10 +69,8 @@ CREATE TABLE `tb_buku` (
 
 INSERT INTO `tb_buku` (`id`, `judul`, `pengarang`, `penerbit`, `isbn`, `jumlah_buku`, `tahun_terbit`, `tgl_input`) VALUES
 (1, 'belajar html dan css', 'stevan radu', 'malang press', 'fasgf2345', 9, '2019', '2019-02-07'),
-(2, 'mahir javascript', 'anonymous', 'intan pariwara', 'asd2018', 21, '2018', '2019-02-05'),
-(4, 'malin kundang', 'anam', 'gak jelas press', 'ads12314', 24, '2013', '2019-12-31'),
-(5, 'aa', 'aa', 'aa', 'afa141412', 13, '2313', '2019-12-31'),
-(6, 'Tutorial Misuh', 'Anam', 'Jancokproduction', '123456hoho', 1, '2010', '2019-08-02');
+(2, 'mahir javascript', 'anonymous', 'intan pariwara', 'asd2018', 20, '2018', '2019-02-05'),
+(4, 'malin kundang', 'anam', 'gak jelas press', 'ads12314', 25, '2013', '2019-12-31');
 
 -- --------------------------------------------------------
 
@@ -91,6 +88,13 @@ CREATE TABLE `tb_pengembalian` (
   `nominal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_pengembalian`
+--
+
+INSERT INTO `tb_pengembalian` (`id_transaksi`, `kode_buku`, `nim`, `nama`, `tanggal_kembali`, `status_denda`, `nominal`) VALUES
+('20190328001', '4', '170535629505', 'amirudin', '2019-04-25', 'bebas denda', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -101,7 +105,7 @@ CREATE TABLE `tb_transaksi` (
   `id_transaksi` varchar(12) NOT NULL,
   `id_buku` int(12) NOT NULL,
   `judul` varchar(255) NOT NULL,
-  `nim` varchar(11) NOT NULL,
+  `nim` varchar(12) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `tgl_pinjam` date NOT NULL,
   `tgl_kembali` date NOT NULL,
@@ -114,7 +118,7 @@ CREATE TABLE `tb_transaksi` (
 --
 
 INSERT INTO `tb_transaksi` (`id_transaksi`, `id_buku`, `judul`, `nim`, `nama`, `tgl_pinjam`, `tgl_kembali`, `status`, `perpanjang`) VALUES
-('20190326001', 1, 'belajar html dan css', '17053562950', 'khoirul anam', '2019-03-26', '2019-04-02', 'di pinjam', 0);
+('20190424001', 2, 'mahir javascript', '170535629606', 'khoirul anam', '2019-04-24', '2019-05-01', 'di pinjam', 0);
 
 -- --------------------------------------------------------
 
@@ -128,7 +132,7 @@ CREATE TABLE `user` (
   `username` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
   `role` int(11) NOT NULL,
-  `date_created` int(11) NOT NULL
+  `date_created` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -136,10 +140,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`, `role`, `date_created`) VALUES
-('170535629502', 'khoirul anam', 'froxy', '$2y$10$GP9bnZZ272zLl7UFFMZV9ON.Qid1jWTj0g9ibtSkEklVQ71gUyYOG', 2, 1553595707),
-('170535629503', 'nasrulloh', 'nasrll', '$2y$10$EeudtJ7EaUF02RdqjJgnOubRMEg67Y4f9SigQjXtfoF8ZL1vZAgc6', 2, 1553544505),
-('170535629504', 'yahya', 'yahya', '$2y$10$crmGLWXWWjo28NHDbreGXOWG9NSI4SYKpMUIeSnKe2qXhrUGYrpou', 1, 1553539499),
-('170535629505', 'amirudin', 'amirudin', '$2y$10$KaA3KyAQUY.00JD8gJ/Sdee8aEb7ohqra/SQy5zK8fDZPOpQ8GmR2', 2, 1553539519);
+('170535629504', 'yahya', 'yahya', '$2y$10$vDjAljQKRi4hzxRM7Foa9u3clYZS6pfMjHnHRun/.BNSAMqlW98n2', 1, '0000-00-00'),
+('170535629508', 'luis devi', 'luis', '$2y$10$gNJVIz2h5KJtH5ujqYhZGOXPEDx0KcIxHPa1.JqghVtfRFijdBxfG', 2, '2019-04-25'),
+('170535629606', 'khoirul anam', 'anam', '$2y$10$jB5/Qz9ElKNMP4bv.z4jCOliQsi.Copo.swjZqFuv6RDI/JmvVtqW', 2, '2019-04-24');
 
 -- --------------------------------------------------------
 
@@ -195,7 +198,7 @@ ALTER TABLE `tb_transaksi`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `user_role`
@@ -211,7 +214,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `tb_buku`
 --
 ALTER TABLE `tb_buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
