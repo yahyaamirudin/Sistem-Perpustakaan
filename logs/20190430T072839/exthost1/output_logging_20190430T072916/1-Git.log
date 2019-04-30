@@ -20,3 +20,24 @@ Open repository: /opt/lampp/htdocs/perpusv2
 > git remote --verbose
 > git check-ignore -z --stdin
 > git add -A -- .
+> git commit --quiet --allow-empty-message --file - --all
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git ls-tree -l HEAD -- /opt/lampp/htdocs/perpusv2/logs/20190430T072839/exthost1/output_logging_20190430T072916/1-Git.log
+> git show cbf015d7987a6b274b5f4666ae3a6c8b4b53fd0d
+> git show HEAD:logs/20190430T072839/exthost1/output_logging_20190430T072916/1-Git.log
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git show :application/views/user/index.php
+> git add -A -- .
+> git commit --quiet --allow-empty-message --file - --all
