@@ -188,7 +188,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" method="post" id="form-user" enctype="multipart/form-data" action="<?= base_url('User/ubah') ?>">
+        <form class="form-horizontal" method="post" id="form-user2" enctype="multipart/form-data" action="<?= base_url('User/ubah') ?>">
           <div class="form-group">
             <label class="col-sm-2 control-label" for="nim">NIM</label>
             <div class="col-sm-10">
@@ -270,7 +270,10 @@
         dataType: 'json',
         success: function(data) {
           console.log(data);
-          $("#nim").val(data.nim);
+          setTimeout(() => {
+            $("#form-user2 #nim").val(data.nim);
+          }, 500);
+           
         }
       });
     })
