@@ -1,0 +1,4 @@
+[2019-04-30 07:28:46.291] [renderer1] [error] net::ERR_INTERNET_DISCONNECTED: {1}
+[2019-04-30 07:29:16.498] [renderer1] [error] net::ERR_INTERNET_DISCONNECTED: {1}
+[2019-04-30 07:29:20.815] [renderer1] [error] Inotify limit reached (ENOSPC)
+[2019-04-30 07:29:23.840] [renderer1] [error] An unknown error occurred. Please consult the log for more details.

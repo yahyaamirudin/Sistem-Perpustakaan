@@ -102,7 +102,7 @@
           <ul class="nav navbar-nav">
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="<?= base_url() ?>upload/product/<?= $bio['gambar'] ?>" class="img-circle" alt="User Image" width='30' height='30'>
+
                 <span class="hidden-xs"><?= $user['nama'] ?></span>
               </a>
               <ul class="dropdown-menu">
