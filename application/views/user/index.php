@@ -2,7 +2,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      User Profile
+      User Profil
     </h1>
   </section>
   <section class="content">
@@ -13,7 +13,7 @@
         <!-- Profile Image -->
         <div class="box box-primary">
           <div class="box-body box-profile">
-            <!-- <img src="<?= base_url() ?>upload/product/<?= $bio['gambar'] ?>" class="profile-user-img img-responsive img-circle" alt="User Image" width='50' height='50'> -->
+            <img src="<?= base_url() ?>upload/product/<?= $bio['gambar'] ?>" class="profile-user-img img-responsive img-circle" alt="User Image" width='50' height='50'>
 
             <h3 class="profile-username text-center"><?= $user['nama']  ?></h3>
 
