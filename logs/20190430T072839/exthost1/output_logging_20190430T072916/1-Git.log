@@ -71,3 +71,45 @@ Open repository: /opt/lampp/htdocs/perpusv2
 > git for-each-ref --format %(refname) %(objectname) --sort -committerdate
 > git remote --verbose
 > git add -A -- .
+> git commit --quiet --allow-empty-message --file - --all
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+git.stage 1
+git.stage.scmResources 1
+> git add -A -- /opt/lampp/htdocs/perpusv2/application/views/user/index.php
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git ls-tree -l HEAD -- /opt/lampp/htdocs/perpusv2/application/views/user/index.php
+> git show 522caf55a3515498fa1bc49082b4bd414999e558
+> git ls-files --stage -- /opt/lampp/htdocs/perpusv2/application/views/user/index.php
+> git cat-file -s ecd076c7009b8c4c6af618d722083dbd488dcaae
+> git show ecd076c7009b8c4c6af618d722083dbd488dcaae
+> git show HEAD:application/views/user/index.php
+> git show :application/views/user/index.php
+> git commit --quiet --allow-empty-message --file -
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git add -A -- .
