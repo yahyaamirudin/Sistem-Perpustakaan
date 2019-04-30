@@ -540,7 +540,8 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location"
+                        "label": "&&Last Edit Location",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1364,5 +1365,19 @@
     },
     "theme": "vs-dark",
     "themeBackground": "#1e1e1e",
-    "pickerWorkingDir": "/opt/lampp/htdocs"
+    "pickerWorkingDir": "/opt/lampp/htdocs",
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///opt/lampp/htdocs/perpusv2",
+            "backupPath": "/opt/lampp/htdocs/perpusv2/Backups/5b8c88c13ba334e503d7d6790e2a84dc",
+            "uiState": {
+                "mode": 0,
+                "x": 0,
+                "y": 59,
+                "width": 1366,
+                "height": 709
+            }
+        },
+        "openedWindows": []
+    }
 }
