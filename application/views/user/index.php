@@ -270,9 +270,12 @@
         dataType: 'json',
         success: function(data) {
           console.log(data);
-          setTimeout(() => {
+          // setTimeout(() => {
             $("#form-user2 #nim").val(data.nim);
-          }, 500);
+            $("#form-user2 #nama").val(data.nama);
+            $("#form-user2 #tempat").val(data.tempat_lahir);
+            $("#form-user2 #tanggal").val(data.tgl_lahir);
+          // }, 500);
            
         }
       });
