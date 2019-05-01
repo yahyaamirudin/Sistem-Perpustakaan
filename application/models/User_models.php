@@ -42,7 +42,7 @@ class User_models extends CI_model
 	{
 		$config['upload_path']          = './upload/product/';
 		$config['allowed_types']        = 'gif|jpg|png';
-		$config['file_name']            = 'default';
+		$config['file_name']            = time();
 		$config['overwrite']			= true;
 		$config['max_size']             = 1024;
 

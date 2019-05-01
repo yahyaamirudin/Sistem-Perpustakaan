@@ -30,8 +30,7 @@
                 <b>Date Created</b> <a class="pull-right"><?= $user['date_created']  ?></a>
               </li>
             </ul>
-
-            <!-- <a href="" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary btn-block"><b>Change User</b></a> -->
+            <a href="<?= base_url() ?>user/ubah/<?= $user['id'] ?>" name="update" class="btn btn-primary btn-block modaledit" data-toggle="modal" data-target="#modaledituser" data-id="<?= $user['id'] ?>">Change User</a>
           </div>
           <!-- /.box-body -->
         </div>
@@ -177,18 +176,18 @@
     </div>
   </section>
 </div>
-
+<!-- MODAL EDIT DATA -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ubah Data</h5>
+        <h2 class="modal-title" id="exampleModalLabel">Ubah Data</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" method="post" id="form-user2" enctype="multipart/form-data" action="<?= base_url('User/ubah') ?>">
+        <form class="form-horizontal" method="post" id="form-user2" enctype="multipart/form-data" action="<?= base_url('User/ubahdata') ?>">
           <div class="form-group">
             <label class="col-sm-2 control-label" for="nim">NIM</label>
             <div class="col-sm-10">
@@ -201,6 +200,7 @@
             <label class="col-sm-2 control-label" for='nama'>Nama</label>
             <div class="col-sm-10">
               <input class="form-control" name="nama" id="nama" type="text" value="" />
+              <?= form_error('nama', '<small class="text-danger">', '</small>') ?>
             </div>
           </div>
 
@@ -208,6 +208,7 @@
             <label class="col-sm-2 control-label" for='tempat'>Tempat Lahir</label>
             <div class="col-sm-10">
               <input class="form-control" name="tempat" id="tempat" type="text" />
+              <?= form_error('tempat', '<small class="text-danger">', '</small>') ?>
             </div>
           </div>
 
@@ -215,6 +216,7 @@
             <label class="col-sm-2 control-label" for='tanggal'>Tanggal Lahir</label>
             <div class="col-sm-10">
               <input class="form-control" name="tanggal" id="tanggal" type="date" />
+              <?= form_error('tanggal', '<small class="text-danger">', '</small>') ?>
             </div>
           </div>
 
@@ -248,7 +250,50 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDIT USER -->
+<div class="modal fade" id="modaledituser" tabindex="-1" role="dialog" aria-labelledby="modaledituserLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modaledituserLabel">Ubah Data</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" method="post" id="form-user3" enctype="multipart/form-data" action="<?= base_url('User/ubahuser') ?>">
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="username">Username</label>
+            <div class="col-sm-10">
+              <input class="form-control" name="username" id="username" type="text" />
+              <?= form_error('username', '<small class="text-danger">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="password">Password</label>
+            <div class="col-sm-10">
+              <input class="form-control" name="password" id="password" type="password" />
+              <?= form_error('password', '<small class="text-danger">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="password">Retype Password</label>
+            <div class="col-sm-10">
+              <input class="form-control" name="password2" id="password2" type="password" />
+              <?= form_error('password2', '<small class="text-danger">', '</small>') ?>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
       </form>
     </div>
@@ -271,12 +316,14 @@
         success: function(data) {
           console.log(data);
           // setTimeout(() => {
-            $("#form-user2 #nim").val(data.nim);
-            $("#form-user2 #nama").val(data.nama);
-            $("#form-user2 #tempat").val(data.tempat_lahir);
-            $("#form-user2 #tanggal").val(data.tgl_lahir);
+          $("#form-user2 #nim").val(data.nim);
+          $("#form-user2 #nama").val(data.nama);
+          $("#form-user2 #tempat").val(data.tempat_lahir);
+          $("#form-user2 #tanggal").val(data.tgl_lahir);
+          $("#form-user2 #jk").val(data.jk);
+          $("#form-user2 #prodi").val(data.prodi);
           // }, 500);
-           
+
         }
       });
     })

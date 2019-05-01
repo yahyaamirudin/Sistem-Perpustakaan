@@ -129,35 +129,38 @@ class User extends CI_Controller
 		endif;
 	}
 
-	// public function ubah()
-	// {
-	// 	$this->form_validation->set_rules('username', 'Username', 'trim|required', 'is_unique[user.username]', ['required' => 'fullname required', 'is_unique' => 'username already exist']);
-	// 	$this->form_validation->set_rules('password', 'Password', 'required|min_length[3]|matches[password2]', ['min_length' => 'password too short', 'matches' => 'password dont match']);
-	// 	$this->form_validation->set_rules('password2', 'Password2', 'required|matches[password]');
+	public function ubahuser()
+	{
+		$this->form_validation->set_rules('username', 'Username', 'trim|required', 'is_unique[user.username]', ['required' => 'fullname required', 'is_unique' => 'username already exist']);
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[3]|matches[password2]', ['min_length' => 'password too short', 'matches' => 'password dont match']);
+		$this->form_validation->set_rules('password2', 'Password2', 'required|matches[password]');
 
-	// 	if ($this->form_validation->run() == false) :
-	// 		redirect('user');
-	// 	else :
-	// 		$data = [
-	// 			'username' => htmlspecialchars($this->input->post('username', true)),
-	// 			'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-	// 		];
-	// 		$this->db->where('username', $this->session->userdata('username'));
-	// 		$this->db->update('user', $data);
-	// 		$result = $this->db->affected_rows();
-	// 		if ($result > 0) :
-	// 			echo "<script>
-	// 			alert('User data have been changed');
-	// 			window.location.href='" . base_url() . 'user' . "';
-	// 			</script>";
-	// 		else :
-	// 			echo "<script>
-	// 			alert('failed');
-	// 			window.location.href='" . base_url() . 'user' . "';
-	// 			</script>";
-	// 		endif;
-	// 	endif;
-	// }
+		if ($this->form_validation->run() == false) :
+			echo "<script>
+				alert('update failed');
+				window.location.href='" . base_url() . 'user' . "';
+				</script>";
+		else :
+			$data = [
+				'username' => htmlspecialchars($this->input->post('username', true)),
+				'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+			];
+			$this->db->where('username', $this->session->userdata('username'));
+			$this->db->update('user', $data);
+			$result = $this->db->affected_rows();
+			if ($result > 0) :
+				echo "<script>
+				alert('update success');
+				window.location.href='" . base_url() . 'auth' . "';
+				</script>";
+			else :
+				echo "<script>
+				alert('failed');
+				window.location.href='" . base_url() . 'user' . "';
+				</script>";
+			endif;
+		endif;
+	}
 	public function getupdate()
 	{
 		echo json_encode($this->db->get_where('tb_anggota', ['nim' => $_POST['id']])->row_array());
@@ -168,15 +171,19 @@ class User extends CI_Controller
 		// $data['user'] 		= $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		// $data['anggota']  	= $this->Anggota_models->getAnggotaByNim($id);
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-		$this->form_validation->set_rules('nim', 'NIM', 'required|numeric|min_length[12]|is_unique[tb_anggota.nim]');
+		$this->form_validation->set_rules('nim', 'NIM', 'required|numeric|min_length[12]');
 		$this->form_validation->set_rules('tempat', 'Tempat', 'required|alpha');
 		$this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
 		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
 		$this->form_validation->set_rules('prodi', 'Prodi', 'required');
 		if ($this->form_validation->run() == false) {
-			redirect('user');
+			echo "<script>
+					alert('data gagal di ubah');
+					window.location.href='" . base_url() . 'user' . "';
+					</script>";
 		} else {
 			$this->User_models->updatedata();
+
 			$result = $this->db->affected_rows();
 			if ($result > 0) :
 				echo "<script>

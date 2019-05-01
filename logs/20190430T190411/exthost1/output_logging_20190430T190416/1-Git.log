@@ -51,3 +51,87 @@ From https://github.com/ymir1998/Sistem-Perpustakaan
  * branch            master     -> FETCH_HEAD
    f93bab8..d5295d9  master     -> origin/master
 > git push origin master:master
+> git check-ignore -z --stdin
+Missing or invalid credentials.
+Error in request
+Missing or invalid credentials.
+Error in request
+remote: Anonymous access to ymir1998/Sistem-Perpustakaan.git denied.
+fatal: Authentication failed for 'https://github.com/ymir1998/Sistem-Perpustakaan.git/'
+> git pull --tags origin master
+From https://github.com/ymir1998/Sistem-Perpustakaan
+ * branch            master     -> FETCH_HEAD
+> git push origin master:master
+remote: 
+remote: GitHub found 27 vulnerabilities on ymir1998/Sistem-Perpustakaan's default branch (6 high, 13 moderate, 8 low). To find out more, visit:        
+remote:      https://github.com/ymir1998/Sistem-Perpustakaan/network/alerts        
+remote: 
+To https://github.com/ymir1998/Sistem-Perpustakaan.git
+   d5295d9..77ab93a  master -> master
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git add -A -- .
+> git commit --quiet --allow-empty-message --file - --all
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git pull --tags origin master
+From https://github.com/ymir1998/Sistem-Perpustakaan
+ * branch            master     -> FETCH_HEAD
+> git push origin master:master
+remote: 
+remote: GitHub found 27 vulnerabilities on ymir1998/Sistem-Perpustakaan's default branch (6 high, 13 moderate, 8 low). To find out more, visit:        
+remote:      https://github.com/ymir1998/Sistem-Perpustakaan/network/alerts        
+remote: 
+To https://github.com/ymir1998/Sistem-Perpustakaan.git
+   77ab93a..355315d  master -> master
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git add -A -- .
+> git commit --quiet --allow-empty-message --file - --all
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git pull --tags origin master
+From https://github.com/ymir1998/Sistem-Perpustakaan
+ * branch            master     -> FETCH_HEAD
+> git push origin master:master
+remote: 
+remote: GitHub found 27 vulnerabilities on ymir1998/Sistem-Perpustakaan's default branch (6 high, 13 moderate, 8 low). To find out more, visit:        
+remote:      https://github.com/ymir1998/Sistem-Perpustakaan/network/alerts        
+remote: 
+To https://github.com/ymir1998/Sistem-Perpustakaan.git
+   355315d..39e7c70  master -> master
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose

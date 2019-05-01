@@ -82,7 +82,7 @@
   <div class="wrapper">
     <header class="main-header">
       <!-- Logo -->
-      <a href="<?= base_url() ?>assets/AdminLTE/index2.html" class="logo">
+      <a href="#" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>P</b>DP</span>
         <!-- logo for regular state and mobile devices -->
@@ -108,8 +108,11 @@
               <ul class="dropdown-menu">
                 <!-- User image -->
                 <li class="user-header">
-                  <img src="<?= base_url() ?>upload/product/<?= $bio['gambar'] ?>" class="profile-user-img img-responsive img-circle" alt="User Image" width='50' height='50'>
-
+                  <?php if ($this->session->userdata('role') !=  1) : ?>
+                    <img src="<?= base_url() ?>upload/product/<?= $bio['gambar'] ?>" class="profile-user-img img-responsive img-circle" alt="User Image" width='50' height='50'>
+                  <?php else : ?>
+                    <img src="<?= base_url() ?>assets/AdminLTE/dist/img/avatar5.png" class="img-circle" alt="User Image">
+                  <?php endif; ?>
                   <p>
                     <?= $user['nama'] ?>
                   </p>
@@ -120,11 +123,6 @@
                   </div>
                 </li>
               </ul>
-            </li>
-            <!-- Control Sidebar Toggle Button -->
-            <!-- <li>
-              <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-            </li> -->
           </ul>
         </div>
       </nav>

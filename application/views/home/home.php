@@ -15,7 +15,7 @@
  				<div class="icon">
  					<i class="ion ion-person"></i>
  				</div>
- 				<a href="#" class="small-box-footer">
+ 				<a href="<?= base_url() ?>anggota/index" class="small-box-footer">
  					More info <i class="fa fa-arrow-circle-right"></i>
  				</a>
  			</div>
@@ -32,7 +32,7 @@
  				<div class="icon">
  					<i class="fa fa-book"></i>
  				</div>
- 				<a href="#" class="small-box-footer">
+ 				<a href="<?= base_url() ?>buku/index" class="small-box-footer">
  					More info <i class="fa fa-arrow-circle-right"></i>
  				</a>
  			</div>
@@ -49,7 +49,7 @@
  				<div class="icon">
  					<i class="fa  fa-cart-plus"></i>
  				</div>
- 				<a href="#" class="small-box-footer">
+ 				<a href="<?= base_url() ?>transaksi/index" class="small-box-footer">
  					More info <i class="fa fa-arrow-circle-right"></i>
  				</a>
  			</div>
@@ -66,7 +66,7 @@
  				<div class="icon">
  					<i class="fa fa-check-circle"></i>
  				</div>
- 				<a href="#" class="small-box-footer">
+ 				<a href="<?= base_url() ?>kembali/index" class="small-box-footer">
  					More info <i class="fa fa-arrow-circle-right"></i>
  				</a>
  			</div>

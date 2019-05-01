@@ -1,49 +1,56 @@
-<?php 
-class Anggota_models extends CI_model{
-	public function getAllAnggota(){
+<?php
+class Anggota_models extends CI_model
+{
+	public function getAllAnggota()
+	{
 
 		return $this->db->get('tb_anggota')->result_array();
 	}
 
-	public function getAnggotaByNim($nim){
-		return $this->db->get_where('tb_anggota',['nim'=>$nim])->row_array();
+	public function getAnggotaByNim($nim)
+	{
+		return $this->db->get_where('tb_anggota', ['nim' => $nim])->row_array();
 	}
 
-	public function tambahanggota(){
+	public function tambahanggota()
+	{
 		$data = [
-			"nim" 			=> $this->input->post('nim',true),
-			"nama" 			=> $this->input->post('nama',true),
-			"tempat_lahir" 	=> $this->input->post('tempat',true),
-			"tgl_lahir" 	=> $this->input->post('tanggal',true),
-			"jk" 			=> $this->input->post('jk',true),
-			"prodi" 		=> $this->input->post('prodi',true),
+			"nim" 			=> $this->input->post('nim', true),
+			"nama" 			=> $this->input->post('nama', true),
+			"tempat_lahir" 	=> $this->input->post('tempat', true),
+			"tgl_lahir" 	=> $this->input->post('tanggal', true),
+			"jk" 			=> $this->input->post('jk', true),
+			"prodi" 		=> $this->input->post('prodi', true),
 			"gambar"		=> $this->do_upload()
 		];
 
 		$this->db->insert('tb_anggota', $data);
 	}
 
-	public function hapusdata($nim){
-		$this->db->delete('tb_anggota',array('nim'=>$nim));
+	public function hapusdata($nim)
+	{
+		$this->db->delete('tb_anggota', array('nim' => $nim));
 	}
 
-	public function updateDataAnggota(){
-		$data= [
-			"nim" 			=> $this->input->post('nim',true),
-			"nama" 			=> $this->input->post('nama',true),
-			"tempat_lahir" 	=> $this->input->post('tempat',true),
-			"tgl_lahir" 	=> $this->input->post('tanggal',true),
-			"jk" 			=> $this->input->post('jk',true),
-			"prodi" 		=> $this->input->post('prodi',true),
+	public function updateDataAnggota()
+	{
+		$data = [
+			"nim" 			=> $this->input->post('nim', true),
+			"nama" 			=> $this->input->post('nama', true),
+			"tempat_lahir" 	=> $this->input->post('tempat', true),
+			"tgl_lahir" 	=> $this->input->post('tanggal', true),
+			"jk" 			=> $this->input->post('jk', true),
+			"prodi" 		=> $this->input->post('prodi', true),
 		];
-		$this->db->where('nim',$this->input->post('nim'));
-		$this->db->update('tb_anggota',$data);
+		$this->db->where('nim', $this->input->post('nim'));
+		$this->db->update('tb_anggota', $data);
 	}
 
-	private function do_upload(){
+	private function do_upload()
+	{
 		$config['upload_path']          = './upload/product/';
 		$config['allowed_types']        = 'gif|jpg|png';
-		$config['file_name']            = 'default';
+		$config['file_name']            = time();
 		$config['overwrite']			= true;
 		$config['max_size']             = 1024;
 
@@ -51,9 +58,9 @@ class Anggota_models extends CI_model{
 
 		if ($this->upload->do_upload('image')) {
 			return $this->upload->data("file_name");
-		}else{
+		} else {
 			$error = $this->upload->display_errors();
-            // menampilkan pesan error
+			// menampilkan pesan error
 			print_r($error);
 		}
 	}
